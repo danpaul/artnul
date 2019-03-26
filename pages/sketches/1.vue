@@ -1,30 +1,36 @@
-<template>
-  <section class="container p-5">
-    <no-ssr placeholder="Loading...">
-      <vue-p5
-        @setup="setup"
-      >
-
-      </vue-p5>
-    </no-ssr>
-  </section>
-</template>
-
 <script>
-// import VueP5 from 'vue-p5';
-const VueP5 = process.client ? require('vue-p5') : null;
+
+import p5Base from '~/components/p5Base';
+import lines from '~/lib/p5/lines';
 
 export default {
-  components: {
-    VueP5
-  },
+  extends: p5Base,
   methods: {
     setup(sketch) {
-      sketch.background('green');
-      sketch.text('Hello p5!', 20, 20);
+      sketch.createCanvas(this.canvasWidth, this.canvasHeight);
+      sketch.background(0);
+      sketch.stroke(255);
+      sketch.noLoop();
+    },
+    draw(sketch) {
+      lines.jagged({
+        start: {x: 0, y: 0},
+        end: {x: this.canvasWidth, y: this.canvasHeight},
+        segments: 10,
+        random: 200,
+        draw: ({ start, end }) => {
+          lines.jagged({
+            start,
+            end,
+            segments: 20,
+            random: 10
+          }, null, sketch );
+        }
+      }, null, sketch );
     }
   }
 }
+
 </script>
 
 <style>
