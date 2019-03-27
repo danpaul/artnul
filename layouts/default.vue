@@ -1,8 +1,22 @@
 <template>
-  <div>
+  <div
+    class="bg-grey-lightest"
+  >
+    <template-menu />
     <nuxt />
   </div>
 </template>
+
+<script>
+
+import TemplateMenu from '~/components/Menu'
+
+export default {
+  components: {
+    TemplateMenu
+  }
+}
+</script>
 
 <style>
 html {

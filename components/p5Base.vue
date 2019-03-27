@@ -30,11 +30,9 @@ export default {
   },
   methods: {
     localSetup(sketch) {
-      if(!process.client){ return; }
       if(this.setup){ this.setup(sketch); }
     },
     localDraw(sketch) {
-      if(!process.client){ return; }
       if(this.draw){ this.draw(sketch); }
     }
   },

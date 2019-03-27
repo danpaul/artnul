@@ -16,8 +16,10 @@
     "vue-p5": "^0.7.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9",
     "autoprefixer": "^8.6.4",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
+    "sass-loader": "^7.1.0",
     "tailwindcss": "^0.7.0"
   }
 }
