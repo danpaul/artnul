@@ -2,8 +2,9 @@
   <section>
     <no-ssr>
       <vue-p5
-        @setup="localSetup"
-        @draw="localDraw"
+        v-if="initialized"
+        @setup="setup"
+        @draw="draw"
       >
       </vue-p5>
     </no-ssr>
@@ -19,26 +20,19 @@ export default {
     VueP5
   },
   props: {
-    canvasWidth: {
-      type: Number,
-      default: process.client ? window.innerWidth : 0
-    },
-    canvasHeight: {
-      type: Number,
-      default: process.client ? window.innerHeight : 0
+    initialized: {
+      type: Boolean,
+      default: true
     }
   },
-  methods: {
-    localSetup(sketch) {
-      if(this.setup){ this.setup(sketch); }
-    },
-    localDraw(sketch) {
-      if(this.draw){ this.draw(sketch); }
-    }
-  },
-  render(h) {
-    return h(VueP5, {on: this});
-  }
+  // methods: {
+  //   setup(sketch) { this.$emit('sketch', sketch); },
+  //   draw(sketch) { { this.$emit('draw', draw); }
+  // }
+  // render(h) {
+  //   return h(VueP5, {on: this});
+  // }
+  // asdf
 }
 </script>
 

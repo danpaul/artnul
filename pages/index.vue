@@ -1,14 +1,41 @@
 <template>
   <section class="container">
+    <div
+      v-for="(sketch, index) in sketches"
+      :key="index"
+      class="w-1/5 flex"
+    >
+      <component
+        :is="getSketch(index)"
+      />
+    </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+
+import sketches from '~/components/sketches'
+
+const elementPadding = 16;
 
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      sketches
+    }
+  },
+  // computed: {
+  //   elementWidth() {
+  //     const breakpoint = Number(tailwind.screens.md.replace('px', ''));
+  //     const { innerWidth } = window;
+  //     if(window.innerWidth < breakpoint){
+  //       return
+  //     }
+  //     console.log(breakpoint)
+  //   }
+  // },
+  methods: {
+    getSketch(index) { return this.sketches[index].sketch; }
   }
 }
 </script>
