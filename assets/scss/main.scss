@@ -1,0 +1,6 @@
+a {
+  @apply no-underline text-grey-darkest;
+  &:hover {
+    @apply no-underline text-black;
+  }
+}

@@ -1,14 +1,23 @@
 <template>
-  <section>
-    <no-ssr>
+  <div
+    class="w-full"
+    ref="wrapper">
+    <img
+      v-if="useStatic && staticImage"
+      :src="staticImage"
+      class="w-full h-full"
+    >
+    <no-ssr
+      v-else
+    >
       <vue-p5
         v-if="initialized"
-        @setup="setup"
-        @draw="draw"
+        @setup="localSetup"
+        @draw="localDraw"
       >
       </vue-p5>
     </no-ssr>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -19,23 +28,50 @@ export default {
   components: {
     VueP5
   },
-  props: {
-    initialized: {
-      type: Boolean,
-      default: true
+  data() {
+    return {
+      initialized: false,
+      localWidth: null,
+      localHeight: null
     }
   },
-  // methods: {
-  //   setup(sketch) { this.$emit('sketch', sketch); },
-  //   draw(sketch) { { this.$emit('draw', draw); }
-  // }
-  // render(h) {
-  //   return h(VueP5, {on: this});
-  // }
-  // asdf
+  computed: {
+    staticImage() {
+      return null;
+    }
+  },
+  mounted() {
+    this.localWidth = this.width ? this.width : this.$refs.wrapper.clientWidth;
+    this.localHeight = this.height ? this.height : this.$refs.wrapper.clientWidth;
+    this.initialized = true;
+  },
+  props: {
+    width: {
+      type: Number,
+      default: null
+    },
+    height: {
+      type: Number,
+      default: null
+    },
+    useStatic: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    localSetup(sketch) {
+      sketch.createCanvas(this.localWidth, this.localHeight);
+      if(this.setup){ this.setup(sketch); }
+    },
+    localDraw(sketch) {
+      if(this.draw){ this.draw(sketch); }
+    },
+    getWidth() { return this.localWidth; },
+    getHeight() { return this.localHeight; },
+    widthFromPercent(percent) { return this.getWidth() * percent },
+    heightFromPercent(percent) { return this.getHeight() * percent }
+  }
 }
+
 </script>
-
-<style>
-
-</style>

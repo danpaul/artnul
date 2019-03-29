@@ -27,7 +27,8 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/assets/css/tailwind.css'
+    '~/assets/css/tailwind.css',
+    '~/assets/scss/main.scss'
   ],
 
   /*

@@ -44,10 +44,7 @@ export default {
 <style lang="scss" scoped>
 
 .menu-link {
-  @apply no-underline ml-4 text-grey-darkest;
-  &:hover {
-    @apply no-underline ml-4 text-black;
-  }
+  @apply ml-4;
 }
 
 </style>
