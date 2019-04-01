@@ -1,7 +1,8 @@
 <template>
   <div
-    class="w-full"
-    ref="wrapper">
+    ref="wrapper"
+    class="w-full h-full"
+  >
     <img
       v-if="useStatic && staticImage"
       :src="staticImage"
@@ -14,36 +15,18 @@
         v-if="initialized"
         @setup="localSetup"
         @draw="localDraw"
-      >
-      </vue-p5>
+      />
     </no-ssr>
   </div>
 </template>
 
 <script>
 
-const VueP5 = process.client ? require('vue-p5') : null;
+const VueP5 = process.client ? require('vue-p5') : null
 
 export default {
   components: {
     VueP5
-  },
-  data() {
-    return {
-      initialized: false,
-      localWidth: null,
-      localHeight: null
-    }
-  },
-  computed: {
-    staticImage() {
-      return null;
-    }
-  },
-  mounted() {
-    this.localWidth = this.width ? this.width : this.$refs.wrapper.clientWidth;
-    this.localHeight = this.height ? this.height : this.$refs.wrapper.clientWidth;
-    this.initialized = true;
   },
   props: {
     width: {
@@ -57,18 +40,49 @@ export default {
     useStatic: {
       type: Boolean,
       default: false
+    },
+    contain: {
+      type: Boolean,
+      default: false
     }
+  },
+  data() {
+    return {
+      initialized: false,
+      localWidth: null,
+      localHeight: null,
+      canvas: null
+    }
+  },
+  computed: {
+    staticImage() {
+      return null
+    }
+  },
+  mounted() {
+    let width = this.width ? this.width : this.$refs.wrapper.clientWidth
+    let height = this.height ? this.height : this.$refs.wrapper.clientHeight
+console.log(width, height)
+    if(this.contain) {
+      const smallest = width < height ? width : height;
+      width = smallest
+      height = smallest
+    }
+    if(height === 0){ height = width }
+    this.localWidth = width
+    this.localHeight = height
+    this.initialized = true
   },
   methods: {
     localSetup(sketch) {
-      sketch.createCanvas(this.localWidth, this.localHeight);
-      if(this.setup){ this.setup(sketch); }
+      this.canvas = sketch.createCanvas(this.localWidth, this.localHeight)
+      if(this.setup){ this.setup(sketch) }
     },
     localDraw(sketch) {
       if(this.draw){ this.draw(sketch); }
     },
-    getWidth() { return this.localWidth; },
-    getHeight() { return this.localHeight; },
+    getWidth() { return this.localWidth },
+    getHeight() { return this.localHeight },
     widthFromPercent(percent) { return this.getWidth() * percent },
     heightFromPercent(percent) { return this.getHeight() * percent }
   }

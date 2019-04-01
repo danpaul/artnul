@@ -4,17 +4,10 @@ import p5Base from '~/components/p5Base';
 import lines from '~/lib/p5/lines';
 import staticImage from './static.png';
 
-// console.log(staticImage)
-
-const VueP5 = process.client ? require('vue-p5') : null;
-
 export default {
   extends: p5Base,
   computed: {
-    staticImage(){
-      console.log('asdf', staticImage)
-      return staticImage;
-    }
+    staticImage(){ return staticImage }
   },
   methods: {
     setup(sketch) {
@@ -38,16 +31,15 @@ export default {
             end,
             segments: 20,
             random: this.widthFromPercent(0.0125),
-            // asdf
-            // draw: ({ start, end }) => {
-            //     lines.jagged({
-            //       sketch,
-            //       start,
-            //       end,
-            //       segments: 50000,
-            //       random: this.widthFromPercent(0.4),
-            //     });
-            // }
+            draw: ({ start, end }) => {
+                lines.jagged({
+                  sketch,
+                  start,
+                  end,
+                  segments: 50000,
+                  random: this.widthFromPercent(0.4),
+                });
+            }
           });
         }
       });

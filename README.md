@@ -22,9 +22,11 @@ $ npm run generate
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
 ## TODO
+* add live reload/testing setup
 * add footer
 * import existing sketches
 * make single sketch view
 * Add Hover state to individual cards and card detail
 * Add privacy policy, terms, etc. pages
 * Add sketch meta and filters
+* X setup test/dev route
