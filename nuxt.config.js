@@ -1,4 +1,5 @@
 import pkg from './package'
+import sketches from './components/sketches';
 
 export default {
   mode: 'universal',
@@ -52,5 +53,16 @@ export default {
     */
     extend(config, ctx) {
     }
+  },
+
+  generate: {
+    routes: () => {
+      const routes = []
+      sketches.forEach(({ slug }) => {
+        routes.push({ route: `/test/${slug}` })
+      })
+      return routes
+    }
   }
+
 }

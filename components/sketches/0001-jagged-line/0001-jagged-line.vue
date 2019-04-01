@@ -1,17 +1,15 @@
 <script>
 
-import p5Base from '~/components/p5Base';
-import lines from '~/lib/p5/lines';
-
-const VueP5 = process.client ? require('vue-p5') : null;
+import p5Base from '~/components/p5Base'
+import lines from '~/lib/p5/lines'
 
 export default {
   extends: p5Base,
   methods: {
     setup(sketch) {
-      sketch.background(0);
-      sketch.stroke(255);
-      sketch.noLoop();
+      sketch.background(0)
+      sketch.stroke(255)
+      sketch.noLoop()
     },
     draw(sketch) {
       lines.jagged({

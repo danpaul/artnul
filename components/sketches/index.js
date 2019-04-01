@@ -1,9 +1,12 @@
-import sketch0001 from './0001-jagged-line/0001-jagged-line'
-import sketch0002 from './0002-line-form/0002-line-form'
-import sketch0003 from './0003-recursive-jagged-lines/0003-recursive-jagged-lines'
-import sketch0004 from './0004-recursive-jagged-lines/0004-recursive-jagged-lines'
-import sketch0005 from './0005-grid-iderator/0005-grid-iderator'
-import sketch0017 from './0017-color-division-pick/0017-color-division-pick'
+/**
+ * Keep `require` pattern to allow this file to be imported during static build
+ */
+const sketch0001 = process.client || process.server ? require('./0001-jagged-line/0001-jagged-line').default : null
+const sketch0002 = process.client || process.server ? require('./0002-line-form/0002-line-form').default : null
+const sketch0003 = process.client || process.server ? require('./0003-recursive-jagged-lines/0003-recursive-jagged-lines').default : null
+const sketch0004 = process.client || process.server ? require('./0004-recursive-jagged-lines/0004-recursive-jagged-lines').default : null
+const sketch0005 = process.client || process.server ? require('./0005-grid-iderator/0005-grid-iderator').default : null
+const sketch0017 = process.client || process.server ? require('./0017-color-division-pick/0017-color-division-pick').default : null
 
 let sketches = [
   {
@@ -44,10 +47,5 @@ let sketches = [
     featured: true
   }
 ]
-
-// asdf
-// for(let i = 0; i < 3; i++) {
-//   sketches = [...sketches, ...sketches];
-// }
 
 export default sketches
