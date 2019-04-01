@@ -4,9 +4,12 @@
     class="w-full h-full"
   >
     <img
-      v-if="useStatic && staticImage"
+      v-if="useStatic && staticImage && initialized"
       :src="staticImage"
-      class="w-full h-full"
+      :style="{
+        width: `${getWidth()}px`,
+        height: `${getHeight()}px`
+      }"
     >
     <no-ssr
       v-else
@@ -62,9 +65,8 @@ export default {
   mounted() {
     let width = this.width ? this.width : this.$refs.wrapper.clientWidth
     let height = this.height ? this.height : this.$refs.wrapper.clientHeight
-console.log(width, height)
     if(this.contain) {
-      const smallest = width < height ? width : height;
+      const smallest = width < height ? width : height
       width = smallest
       height = smallest
     }
@@ -82,7 +84,9 @@ console.log(width, height)
       if(this.draw){ this.draw(sketch); }
     },
     getWidth() { return this.localWidth },
-    getHeight() { return this.localHeight },
+    getHeight() {
+      return this.localHeight
+    },
     widthFromPercent(percent) { return this.getWidth() * percent },
     heightFromPercent(percent) { return this.getHeight() * percent }
   }

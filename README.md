@@ -22,6 +22,7 @@ $ npm run generate
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
 ## TODO
+* Favicon
 * add live reload/testing setup
 * add footer
 * import existing sketches
