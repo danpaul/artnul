@@ -71,6 +71,11 @@ export default {
   computed: {
     staticImage(){ return staticImage }
   },
+  beforeDestroy() {
+    if(process.client) {
+      window.removeEventListener('keydown', this.keydown)
+    }
+  },
   methods: {
     setup(sketch) {
       sketch.background(255)
@@ -81,9 +86,30 @@ export default {
         const clicked = gridElementClicked(sketch.mouseX, sketch.mouseY, this.getWidth(), this.getHeight(), X_SEGMENTS, Y_SEGMENTS)
         selectedColor = gridColors[clicked[0]][clicked[1]];
         reDraw({ sketch, width: this.getWidth(), height: this.getHeight() })
-      })
+      }),
+      document.addEventListener('keydown', this.keydown)
     },
-    draw(sketch) { reDraw({ sketch, width: this.getWidth(), height: this.getHeight() }) }
+    draw(sketch) {
+      const c = sketch.color(1,2,3);
+      reDraw({ sketch, width: this.getWidth(), height: this.getHeight() })
+    },
+    keydown({ key }) {
+      if(key === 'e'){
+        const colors = []
+        const loop = (elements) => {
+          elements.forEach((e) => {
+            if(Array.isArray(e)){
+              loop(e)
+            } else {
+              colors.push(e);
+            }
+          })
+        }
+        loop(gridColors)
+        const rgbColors = colors.map(({ levels}) => (levels));
+        console.log(JSON.stringify(rgbColors))
+      }
+    }
   }
 }
 

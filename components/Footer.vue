@@ -18,23 +18,23 @@
   >
     <div class="flex">
       <div class="footer-item">
-          © ArtNul <no-ssr>{{ new Date().getFullYear() }}</no-ssr>
+        © ArtNul <no-ssr>{{ new Date().getFullYear() }}</no-ssr>
       </div>
-      <nuxt-link to="/privacy" class="footer-item">
+      <!-- <nuxt-link to="/privacy" class="footer-item">
         Privacy Policies
-      </nuxt-link>
-      <nuxt-link to="/privacy" class="footer-item">
+      </nuxt-link> -->
+      <!-- <nuxt-link to="/privacy" class="footer-item">
         Terms & Conditions
-      </nuxt-link>
+      </nuxt-link> -->
     </div>
     <div>
-      <nuxt-link to="/" class="footer-item">
+      <a href="https://www.instagram.com/artnnnul/" target="_blank" class="footer-item">
         Instagram
-      </nuxt-link>
-      <nuxt-link to="/" class="footer-item">
+      </a>
+      <!-- <nuxt-link to="/" class="footer-item">
         Newsletter
-      </nuxt-link>
-      <nuxt-link to="/" class="footer-item mr-0">
+      </nuxt-link> -->
+      <nuxt-link to="/contact" class="footer-item mr-0">
         Contact
       </nuxt-link>
     </div>

@@ -6,6 +6,9 @@ const sketch0002 = process.client || process.server ? require('./0002-line-form/
 const sketch0003 = process.client || process.server ? require('./0003-recursive-jagged-lines/0003-recursive-jagged-lines').default : null
 const sketch0004 = process.client || process.server ? require('./0004-recursive-jagged-lines/0004-recursive-jagged-lines').default : null
 const sketch0005 = process.client || process.server ? require('./0005-grid-iderator/0005-grid-iderator').default : null
+const sketch0006 = process.client || process.server ? require('./0006-color-box/0006-color-box').default : null
+const sketch0008 = process.client || process.server ? require('./0008-color-box-iterator/0008-color-box-iterator').default : null
+const sketch0016 = process.client || process.server ? require('./0016-color-division/0016-color-division').default : null
 const sketch0017 = process.client || process.server ? require('./0017-color-division-pick/0017-color-division-pick').default : null
 
 let sketches = [
@@ -38,6 +41,25 @@ let sketches = [
     title: 'Grid Iterate Circles',
     slug: 'grid-iterate-circles',
     published: true
+  },
+  {
+    sketch: sketch0006,
+    title: 'Color Box',
+    slug: 'color-box',
+    published: true
+  },
+  {
+    sketch: sketch0008,
+    title: 'Color Box Iterator',
+    slug: 'color-box-iterator',
+    published: true
+  },
+  {
+    sketch: sketch0016,
+    title: 'Color Division',
+    slug: 'color-division',
+    published: true,
+    featured: false
   },
   {
     sketch: sketch0017,

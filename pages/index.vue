@@ -1,6 +1,5 @@
 <template>
   <div class="h-screen w-full px-4 py-24" style="padding-top: 4.5rem;">
-  <!-- <div class="container px-6 h-screen" style="padding-top: 4.5rem;"> -->
     <component
       :is="featured.sketch"
       v-if="featured"

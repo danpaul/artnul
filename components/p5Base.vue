@@ -4,7 +4,7 @@
     class="w-full h-full"
   >
     <img
-      v-if="useStatic && staticImage && initialized"
+      v-if="useStatic && staticImage && initialized && !forceHide"
       :src="staticImage"
       :style="{
         width: `${getWidth()}px`,
@@ -15,7 +15,7 @@
       v-else
     >
       <vue-p5
-        v-if="initialized"
+        v-if="initialized && !forceHide"
         @setup="localSetup"
         @draw="localDraw"
       />
@@ -54,7 +54,9 @@ export default {
       initialized: false,
       localWidth: null,
       localHeight: null,
-      canvas: null
+      canvas: null,
+      forceHide: false,
+      resizeTimer: null
     }
   },
   computed: {
@@ -63,17 +65,16 @@ export default {
     }
   },
   mounted() {
-    let width = this.width ? this.width : this.$refs.wrapper.clientWidth
-    let height = this.height ? this.height : this.$refs.wrapper.clientHeight
-    if(this.contain) {
-      const smallest = width < height ? width : height
-      width = smallest
-      height = smallest
+    this.setWidthAndHeight()
+    if(process.client) {
+      window.addEventListener('resize', this.resize, true)
     }
-    if(height === 0){ height = width }
-    this.localWidth = width
-    this.localHeight = height
     this.initialized = true
+  },
+  beforeDestroy() {
+    if(process.client) {
+      window.removeEventListener('resize', this.resize)
+    }
   },
   methods: {
     localSetup(sketch) {
@@ -88,7 +89,33 @@ export default {
       return this.localHeight
     },
     widthFromPercent(percent) { return this.getWidth() * percent },
-    heightFromPercent(percent) { return this.getHeight() * percent }
+    heightFromPercent(percent) { return this.getHeight() * percent },
+    getWidthAndHeight() {
+      let width = this.width ? this.width : this.$refs.wrapper.clientWidth
+      let height = this.height ? this.height : this.$refs.wrapper.clientHeight
+      if(this.contain) {
+        const smallest = width < height ? width : height
+        width = smallest
+        height = smallest
+      }
+      if(height === 0){ height = width }
+      return { width, height }
+    },
+    setWidthAndHeight() {
+      const { width, height } = this.getWidthAndHeight()
+      this.localWidth = width
+      this.localHeight = height
+    },
+    resize() {
+      window.clearTimeout(this.resizeTimer)
+      this.resizeTimer = window.setTimeout(() => {
+        this.forceHide = true
+        this.$nextTick(() => {
+          this.setWidthAndHeight()
+          this.forceHide = false
+        })
+      }, 250)
+    },
   }
 }
 

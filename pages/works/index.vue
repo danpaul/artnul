@@ -6,7 +6,7 @@
       class="w-1/5 p-4 cursor-pointer"
     >
       <nuxt-link
-        :to="`/test/${sketch.slug}`"
+        :to="`/works/${sketch.slug}`"
         class="no-underline text-black"
       >
         <component
@@ -29,7 +29,7 @@ export default {
     }
   },
   methods: {
-    getSketch(index) { return this.sketches[index].sketch; }
+    getSketch(index) { return this.sketches[index].sketch }
   }
 }
 </script>

@@ -60,6 +60,7 @@ export default {
       const routes = []
       sketches.forEach(({ slug }) => {
         routes.push({ route: `/test/${slug}` })
+        routes.push({ route: `/works/${slug}` })
       })
       return routes
     }
