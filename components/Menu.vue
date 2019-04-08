@@ -25,9 +25,9 @@
       <nuxt-link to="/works" class="menu-link">
         Works
       </nuxt-link>
-      <nuxt-link to="/about" class="menu-link">
+      <!-- <nuxt-link to="/about" class="menu-link">
         About
-      </nuxt-link>
+      </nuxt-link> -->
       <!-- <nuxt-link to="/shipping" class="menu-link">
         Shipping
       </nuxt-link> -->
