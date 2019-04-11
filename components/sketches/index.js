@@ -10,6 +10,10 @@ const sketch0006 = process.client || process.server ? require('./0006-color-box/
 const sketch0008 = process.client || process.server ? require('./0008-color-box-iterator/0008-color-box-iterator').default : null
 const sketch0016 = process.client || process.server ? require('./0016-color-division/0016-color-division').default : null
 const sketch0017 = process.client || process.server ? require('./0017-color-division-pick/0017-color-division-pick').default : null
+const sketch0018 = process.client || process.server ? require('./00018-color-box-iterator/00018-color-box-iterator').default : null
+const sketch0019 = process.client || process.server ? require('./00019-color-box-palette/00019-color-box-palette').default : null
+
+
 
 let sketches = [
   {
@@ -28,13 +32,13 @@ let sketches = [
     sketch: sketch0003,
     title: 'Jagged Line Recurse',
     slug: 'jagged-line-recurse',
-    published: true
+    published: false
   },
   {
     sketch: sketch0004,
     title: 'Jagged Line Recurse 02',
     slug: 'jagged-line-recurse-02',
-    published: true
+    published: false
   },
   {
     sketch: sketch0005,
@@ -65,6 +69,20 @@ let sketches = [
     sketch: sketch0017,
     title: 'Color Division Pick',
     slug: 'color-division-pick',
+    published: true,
+    featured: true
+  },
+  {
+    sketch: sketch0018,
+    title: 'Color Recurse Red',
+    slug: 'color-recurse-red',
+    published: true,
+    featured: true
+  },
+  {
+    sketch: sketch0019,
+    title: 'Color Recurse Palette',
+    slug: 'color-recurse-palette',
     published: true,
     featured: true
   }

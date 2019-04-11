@@ -3,6 +3,7 @@
     <component
       :is="sketch.sketch"
       :contain="true"
+      :use-static="true"
     />
   </div>
 </template>
