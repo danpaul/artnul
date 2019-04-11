@@ -1,8 +1,8 @@
 <template>
   <div class="h-screen max-w-lg px-6 py-24" style="padding-top: 4.5rem;">
-    <p>ArtNul features contemporary, square format, generative art. Art is primarily generated using the Processing programming language and its JavaScript port P5.js. Works are both composed and curated using random generaters and tools to promote preffered compositions.</p>
+    <p>ArtNul features contemporary, square format, generative art created using the Processing programming language and its JavaScript port (P5.js). Works are both composed and curated using random generaters and tools to promote preffered compositions.</p>
     <p>
-      The site and works are rapodly evolving.
+      The site and works are rapidly evolving.
       <nuxt-link to="/list">
         Signup for newsletter to receive occasional updates.
       </nuxt-link>
