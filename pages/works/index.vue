@@ -25,7 +25,7 @@ import sketches from '~/components/sketches'
 export default {
   data() {
     return {
-      sketches: sketches.filter(({ published}) => (published))
+      sketches: sketches.filter(({ published}) => (published)).reverse()
     }
   },
   methods: {

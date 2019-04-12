@@ -12,8 +12,7 @@ const sketch0016 = process.client || process.server ? require('./0016-color-divi
 const sketch0017 = process.client || process.server ? require('./0017-color-division-pick/0017-color-division-pick').default : null
 const sketch0018 = process.client || process.server ? require('./00018-color-box-iterator/00018-color-box-iterator').default : null
 const sketch0019 = process.client || process.server ? require('./00019-color-box-palette/00019-color-box-palette').default : null
-
-
+const sketch0020 = process.client || process.server ? require('./00020/line-test').default : null
 
 let sketches = [
   {
@@ -85,7 +84,15 @@ let sketches = [
     slug: 'color-recurse-palette',
     published: true,
     featured: true
+  },
+  {
+    sketch: sketch0020,
+    title: 'Parallel Lines',
+    slug: 'parallel-lines',
+    published: true,
+    featured: false
   }
+
 ]
 
 export default sketches
