@@ -3,6 +3,8 @@
     <component
       :is="sketch.sketch"
       :contain="true"
+      :create-gui="true"
+      :slug="sketch.slug"
     />
   </div>
 </template>

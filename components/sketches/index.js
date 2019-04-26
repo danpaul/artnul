@@ -13,6 +13,7 @@ const sketch0017 = process.client || process.server ? require('./0017-color-divi
 const sketch0018 = process.client || process.server ? require('./00018-color-box-iterator/00018-color-box-iterator').default : null
 const sketch0019 = process.client || process.server ? require('./00019-color-box-palette/00019-color-box-palette').default : null
 const sketch0020 = process.client || process.server ? require('./00020/line-test').default : null
+const sketch0021 = process.client || process.server ? require('./0021-gui-test/0021-gui-test.vue').default : null
 
 let sketches = [
   {
@@ -91,8 +92,14 @@ let sketches = [
     slug: 'parallel-lines',
     published: true,
     featured: false
+  },
+  {
+    sketch: sketch0021,
+    title: 'GUI Test',
+    slug: 'gui-test',
+    published: false,
+    featured: false
   }
-
 ]
 
 export default sketches

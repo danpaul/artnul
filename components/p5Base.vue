@@ -26,6 +26,7 @@
 <script>
 
 const VueP5 = process.client ? require('vue-p5') : null
+const QuickSettings = process.client ? require('quicksettings') : null
 
 export default {
   components: {
@@ -47,6 +48,14 @@ export default {
     contain: {
       type: Boolean,
       default: false
+    },
+    createGui: {
+      type: Boolean,
+      default: false
+    },
+    slug: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -56,7 +65,8 @@ export default {
       localHeight: null,
       canvas: null,
       forceHide: false,
-      resizeTimer: null
+      resizeTimer: null,
+      settings: null
     }
   },
   computed: {
@@ -68,6 +78,11 @@ export default {
     this.setWidthAndHeight()
     if(process.client) {
       window.addEventListener('resize', this.resize, true)
+    }
+    if(this.createGui && QuickSettings) {
+      this.settings = QuickSettings.create(this.getWidth() + 40, 80, 'Settings')
+      // console.log(this.settings.saveInLocalStorage(this.slug))
+      // this.settings.saveInLocalStorage(this.slug)
     }
     this.initialized = true
   },
