@@ -4,6 +4,10 @@
 // https://monosnap.com/file/leuT4SwPDhZxsE6fbe8jZojl7tVgwv
 // https://monosnap.com/file/OqgbtvUlepKFwb45Wm6vOwBx8gIixK
 // https://monosnap.com/file/hC9OheLSFdViHU3dnTrVSx1T2NNiV3
+// https://monosnap.com/file/RS9ftZ3NUd7lLVKDRqeDrWgqyjMIxE
+// https://monosnap.com/file/YNk4ETI6WvBQMllD4t7LMEz7ytPzRX
+// https://monosnap.com/file/1ie0r7fcLpo8lg8kGDOZFzzAZaTlxv
+// https://monosnap.com/file/HkmNuI3o1DiwOciguPQhpUjwDWBcgZ
 
 import p5Base from '~/components/p5Base'
 import lines from '~/lib/p5/lines'
@@ -23,27 +27,24 @@ export default {
   },
   methods: {
     setup(sketch) {
-      this.settings.addRange('ySteps', 0, 200, ySteps, 1, (value) => {
-        ySteps = value
-      })
-      this.settings.addRange('opacity', 0, 1.0, opacity, 0.01, (value) => {
-        opacity = value
-      })
-      this.settings.addRange('segments', 1, 100, segments, 1, (value) => {
-        segments = value
-      })
-      this.settings.addRange('strokeWeight', 1, 100, strokeWeight, 1, (value) => {
-        strokeWeight = value
-      })
-      this.settings.saveInLocalStorage(this.slug + 'asdf')
-
-
+      if(this.settings) {
+        this.settings.addRange('ySteps', 0, 200, ySteps, 1, (value) => {
+          ySteps = value
+        })
+        this.settings.addRange('opacity', 0, 1.0, opacity, 0.01, (value) => {
+          opacity = value
+        })
+        this.settings.addRange('segments', 1, 100, segments, 1, (value) => {
+          segments = value
+        })
+        this.settings.addRange('strokeWeight', 1, 100, strokeWeight, 1, (value) => {
+          strokeWeight = value
+        })
+        this.settings.saveInLocalStorage(this.slug + 'asdf')
+      }
       sketch.colorMode(sketch.RGB, 255, 255, 255, 1)
-      // const strokeColor = sketch.color(255, 255, 255, opacity)
-      // sketch.stroke(strokeColor)
       sketch.background(255)
       sketch.strokeWeight(strokeWeight)
-      // sketch.fill(255, 255, 255)
       sketch.noLoop()
     },
     draw(sketch) {

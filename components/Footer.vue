@@ -31,9 +31,9 @@
       <a href="https://www.instagram.com/artnnnul/" target="_blank" class="footer-item">
         Instagram
       </a>
-      <!-- <nuxt-link to="/" class="footer-item">
+      <nuxt-link to="/list" class="footer-item">
         Newsletter
-      </nuxt-link> -->
+      </nuxt-link>
       <nuxt-link to="/contact" class="footer-item mr-0">
         Contact
       </nuxt-link>

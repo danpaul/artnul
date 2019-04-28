@@ -22,11 +22,11 @@
       <h1>ArtNul</h1>
     </nuxt-link>
     <div>
-      <nuxt-link to="/works" class="menu-link">
+      <!-- <nuxt-link to="/works" class="menu-link">
         Works
-      </nuxt-link>
+      </nuxt-link> -->
       <nuxt-link to="/about" class="menu-link">
-        About
+        Hi
       </nuxt-link>
       <!-- <nuxt-link to="/shipping" class="menu-link">
         Shipping

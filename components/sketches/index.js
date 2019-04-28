@@ -14,6 +14,7 @@ const sketch0018 = process.client || process.server ? require('./00018-color-box
 const sketch0019 = process.client || process.server ? require('./00019-color-box-palette/00019-color-box-palette').default : null
 const sketch0020 = process.client || process.server ? require('./00020/line-test').default : null
 const sketch0021 = process.client || process.server ? require('./0021-gui-test/0021-gui-test.vue').default : null
+const sketch0022 = process.client || process.server ? require('./0022-color-box-iterator-2/0022-color-box-iterator-2.vue').default : null
 
 let sketches = [
   {
@@ -26,7 +27,7 @@ let sketches = [
     sketch: sketch0002,
     title: 'Line Form',
     slug: 'line-form',
-    published: true
+    published: false
   },
   {
     sketch: sketch0003,
@@ -44,7 +45,7 @@ let sketches = [
     sketch: sketch0005,
     title: 'Grid Iterate Circles',
     slug: 'grid-iterate-circles',
-    published: true
+    published: false
   },
   {
     sketch: sketch0006,
@@ -56,13 +57,13 @@ let sketches = [
     sketch: sketch0008,
     title: 'Color Box Iterator',
     slug: 'color-box-iterator',
-    published: true
+    published: false
   },
   {
     sketch: sketch0016,
     title: 'Color Division',
     slug: 'color-division',
-    published: true,
+    published: false,
     featured: false
   },
   {
@@ -83,14 +84,14 @@ let sketches = [
     sketch: sketch0019,
     title: 'Color Recurse Palette',
     slug: 'color-recurse-palette',
-    published: true,
+    published: false,
     featured: true
   },
   {
     sketch: sketch0020,
     title: 'Parallel Lines',
     slug: 'parallel-lines',
-    published: true,
+    published: false,
     featured: false
   },
   {
@@ -99,7 +100,15 @@ let sketches = [
     slug: 'gui-test',
     published: false,
     featured: false
+  },
+  {
+    sketch: sketch0022,
+    title: 'Color Box Iterator 02',
+    slug: 'color-box-iterator-02',
+    published: false,
+    featured: false
   }
+
 ]
 
 export default sketches
