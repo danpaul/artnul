@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen max-w-lg px-6 py-24" style="padding-top: 4.5rem;">
     <p>ArtNul features contemporary, square format, generative, digital art.</p>
-    <p>Compositions have a focus on pattern, color, recursion and algorithmic design.</p>
+    <p>Compositions have a focus on randomness, pattern, color, recursion and algorithmic design.</p>
     <nuxt-link to="/list">
       Signup for the newsletter to receive monthly updates regarding new works.
     </nuxt-link>
@@ -29,7 +29,6 @@ export default {
 <style>
 
 .container {
-  /* margin: 0 auto; */
   min-height: 100vh;
   text-align: center;
 }

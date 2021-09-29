@@ -15,6 +15,8 @@ const sketch0019 = process.client || process.server ? require('./00019-color-box
 const sketch0020 = process.client || process.server ? require('./00020/line-test').default : null
 const sketch0021 = process.client || process.server ? require('./0021-gui-test/0021-gui-test.vue').default : null
 const sketch0022 = process.client || process.server ? require('./0022-color-box-iterator-2/0022-color-box-iterator-2.vue').default : null
+const sketch0023 = process.client || process.server ? require('./0023-color-box-iterator-gui/0023-color-box-iterator-gui.vue').default : null
+const sketch0024 = process.client || process.server ? require('./0024-box-iterator-points/0024-box-iterator-points.vue').default : null
 
 let sketches = [
   {
@@ -107,8 +109,21 @@ let sketches = [
     slug: 'color-box-iterator-02',
     published: false,
     featured: false
+  },
+  {
+    sketch: sketch0023,
+    title: 'Color Box Iterator 03',
+    slug: 'color-box-iterator-03',
+    published: false,
+    featured: false
+  },
+  {
+    sketch: sketch0024,
+    title: 'Box Iterator Points',
+    slug: 'box-iterator-points',
+    published: false,
+    featured: false
   }
-
 ]
 
 export default sketches
