@@ -1,33 +1,34 @@
 {
-  "name": "artnul",
+  "name": "artnul_02",
   "version": "1.0.0",
-  "description": "artnul.com homepage",
-  "author": "Dan Breczinski",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint": "npm run lint:js"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "^2.2.0",
-    "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0",
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7",
     "quicksettings": "^3.0.1",
-    "vue-p5": "^0.7.1"
+    "vue-p5": "^0.8.4"
   },
   "devDependencies": {
-    "autoprefixer": "^8.6.4",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.15.3",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-vue": "^5.2.2",
-    "node-sass": "^4.11.0",
-    "nodemon": "^1.18.9",
-    "sass-loader": "^7.1.0",
-    "tailwindcss": "^0.7.0"
+    "@babel/eslint-parser": "^7.14.7",
+    "@nuxtjs/eslint-config": "^6.0.1",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^4.2.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-vue": "^7.12.1",
+    "fibers": "^5.0.0",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "sass": "^1.42.1",
+    "sass-loader": "^10.2.0"
   }
 }

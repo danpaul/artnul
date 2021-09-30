@@ -1,72 +1,45 @@
-import pkg from './package'
-import sketches from './components/sketches';
-
 export default {
-  mode: 'universal',
-
-  /*
-  ** Headers of the page
-  */
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: pkg.name,
+    title: 'artnul_02',
+    htmlAttrs: {
+      lang: 'en'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: '' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
-  /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#fff' },
-
-  /*
-  ** Global CSS
-  */
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/tailwind.css',
-    '~/assets/scss/main.scss'
   ],
 
-  /*
-  ** Plugins to load before mounting the App
-  */
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
 
-  /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-139147591-1'
-    }]
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/tailwindcss',
   ],
 
-  /*
-  ** Build configuration
-  */
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+  ],
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-    }
-  },
-
-  generate: {
-    routes: () => {
-      const routes = []
-      sketches.forEach(({ slug }) => {
-        routes.push({ route: `/test/${slug}` })
-        routes.push({ route: `/works/${slug}` })
-      })
-      return routes
-    }
   }
-
 }

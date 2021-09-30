@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="bg-grey-lightest"
-  >
+  <div class="bg-gray-100">
     <template-menu />
     <nuxt />
     <template-footer />
@@ -9,15 +7,14 @@
 </template>
 
 <script>
-
 import TemplateMenu from '~/components/Menu'
 import TemplateFooter from '~/components/Footer'
 
 export default {
   components: {
     TemplateMenu,
-    TemplateFooter
-  }
+    TemplateFooter,
+  },
 }
 </script>
 
@@ -40,5 +37,4 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
 </style>
